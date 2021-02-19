@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>About Yassine</title>
+<link rel="shortout icon" type="image/x-icon" href="avtar.ico" />
+<link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<style>
+    :root {
+ --primary:#f44339;
+}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior: smooth;
+}
+body {
+font-family: 'Muli', sans-serif;
+font-weight:400;
+line-height:1.4;
+font-size:1em;
+background:#fff;
+}
+a,a:hover {
+text-decoration:none;
+}
+ul{
+ list-style:none;
+}
+button{
+ outline:none;
+ border:none;
+ display:inline-block;
+ transition:0.7s ease;
+}
+.celebration {
+ position:relative;
+ width:100%;
+ min-height:100vh;
+ display:flex;
+ justify-content: center;
+ align-items: center;
+ padding:20px;
+ background:lightblue;
+ overflow:hidden;
+}
+.celebration-content {
+ text-align:center;
+ font-family:cursive;
+ color:#fff;
+ z-index:2;
+ margin-top:20px;
+}
+.celebration-content h1 {
+ font-size:3rem;
+ color:#ffff12;
+ animation:zoomIn 2s ease infinite 0.5s;
+ animation-fill-mode:both;
+ box-shadow:#fefefe;
+}
+.celebration-content h2{
+ margin-bottom:20px;
+ animation:fadeIn 1s ease 1s;
+ animation-fill-mode:both;
+}
+.cake {
+ display:block;
+ margin:auto;
+ width:150px;
+ animation:fadeIn 1s ease 1.5s;
+ animation-fill-mode:both;
+}
+.celebration-content button {
+ padding:10px 25px;
+ border-radius:30px;
+ background:#fff;
+ color:var(--primary);
+ font-size:18px;
+ font-family:cursive;
+ letter-spacing:1px;
+ margin-top:20px;
+ box-shadow:0px 5px 5px -2px rgba(0,0,0,0.3);
+ animation:fadeIn 1s ease 2s;
+ animation-fill-mode:both;
+}
+.celebration-content button:hover {
+ background:#ffff12;
+}
+.celebration-content .c1{
+ position:absolute;
+ bottom:0;
+ left:0;
+ animation:fadeIn 1s ease 2.5s;
+ animation-fill-mode:both;
+} 
+.celebration svg{
+ position:absolute;
+ z-index:1;
+ top:20px;
+ max-width:340px;
+ margin:auto;
+ animation:fadeIn 1s ease 2.5s;
+ animation-fill-mode:both;
+ }
+ 
+ @keyframes fadeIn {
+  0%{
+   opacity:0;
+   transform:translateY(50px);
+  }
+  100%{
+   opacity:1;
+   transform:translateY(0);
+  }
+ }
+ @keyframes zoomIn{
+  0%,100%{
+   transform:scale(1);
+  }
+  50%{
+   transform:scale(1.5);
+  }
+ }
+ .hide{
+  display:none; 
+ }
+ main {
+  transition:1s ease;
+ }
+ .nav-btn {
+ position:fixed; 
+ bottom:20px;
+ right:20px;
+ height:50px;
+ width:50px;
+ border-radius:50%;
+ background:var(--primary);
+ display:flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ z-index:9;
+ cursor:pointer;
+ box-shadow:2px 2px 5px -2px rgba(0,0,0,0.4);
+ 
+ }
+ .nav-btn span {
+  display:block;
+  width:25px;
+  height:2px;
+  background:#fff;
+  margin:3px 0;
+ }
+ .sidebar {
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  width:240px;
+  background:#fff;
+  z-index:7;
+  box-shadow:2px 0 5px rgba(0,0,0,0.4);
+  padding:20px;
+  transition:300ms ease-in;
+  transform:translateX(100%);
+  opacity:0;
+ }
+ .sidebar.active{
+  transform:translateX(0);
+  opacity:1;
+ }
+ .sidebar-title {
+  color:var(--primary);
+  font-family:cursive;
+  border-bottom:1px solid var(--primary);
+  margin-bottom:20px;
+  padding-bottom:5px;
+  font-size:1.2rem;
+ }
+ .sidebar a {
+  display:block;
+  color:#444;
+  padding:5px 0;
+  border-bottom:1px solid #ccc;
+  transition:200ms;
+ }
+ .sidebar a:hover {
+  color:var(--primary);
+ }
+ .header {
+  text-align:center;
+ }
+ .header-bg {
+  width:100%;
+  height:200px;
+  background:linear-gradient(0deg,rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTuRmfsiZfNXlQDvzu71loPPwTQ1j_fkdrcOb9t1h4Fojvm7vpR&usqp=CAU");
+  background-size:cover;
+  background-position: center;
+ }
+ .profile-img {
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  overflow:hidden;
+  margin:auto;
+  transform:translateY(-50%);
+ }
+ .profile-img img{
+  width:100%;
+ }
+ .circle-box {
+  position:relative;
+  }
+ .circle {
+  position:absolute;
+  height:140px;
+  width:140px;
+  top:0;
+  left:50%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  border:5px solid var(--primary);
+  border-top-color:transparent;
+  border-bottom-color:transparent;
+  animation:spin 5s ease infinite;
+ }
+ @keyframes spin{
+ 0%,100%{
+ transform:translate(-50%,-50%) rotate(0);
+ border-left-color:var(--primary);
+ border-right-color:var(--primary);
+ }
+ 50%{
+ transform:translate(-50%,-50%) rotate(360deg);
+ border-left-color:#0fc0ff;
+ border-right-color:#0fc0ff;
+ }
+ }
+ .user-info {
+  width:300px;
+  margin:-40px auto 30px;
+ }
+ .user-info p{
+  color:#666;
+ }
+ .container {
+  padding:0 10%;
+ }
+ .container p{
+  color:#333;
+ }
+ .subtitle {
+  position:relative;
+  text-align:center;
+  color:var(--primary);
+  font-family:cursive;
+  margin-bottom:20px;
+  margin-top:20px;
+ }
+ .subtitle h2{
+  font-size:2rem;
+  background:#fff;
+  display:inline-block;
+  padding:0 10px;
+ }
+ .subtitle::before{
+  content:'';
+  position:absolute;
+  height:1px;
+  width:100%;
+  background:#ccc;
+  left:0;
+  top:50%;
+  z-index:-1;
+ } 
+ .skills {
+  display:flex;
+  flex-wrap:wrap;
+  width:100%;
+ }
+ .lang {
+  width:46%;
+  margin:0 2% 20px;
+  background:#fff;
+  color:#0fc3ff;
+  font-size:2rem;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height:150px;
+  box-shadow:5px 5px 15px rgba(0,0,0,0.2);
+  border-radius:5px;
+  transition:0.3s;
+ }
+ .lang.blue {
+  background:#0fc0ff;
+  color:#fff;
+ }
+ .lang:hover {
+   background:#0fc0ff;
+   color:#fff;
+ }
+ .lang.blue:hover {
+  color:#0fc3ff;
+   background:#fff;
+ }
+ .card {
+  margin-bottom:25px;
+  background:#fff;
+  border-radius:8px;
+  overflow:hidden;
+  box-shadow:2px 2px 15px rgba(0,0,0,0.4);
+ }
+ .card img {
+  width:100%;
+ }
+ .card-body {
+  margin:1rem;
+  padding:1rem 0;
+  border-bottom:1px dashed var(--primary);
+ }
+ .card-body h2 {
+  margin-bottom:10px;
+  margin-top:-10px;
+ }
+ .card-body p {
+  color:#666;
+ }
+ .card span {
+  display:inline-block;
+  color:var(--primary);
+  opacity:0.8;
+  background:rgba(204,204,204,0.2);
+  padding:6px 15px;
+  border-radius:3px;
+  margin:0 1rem 1rem;
+  font-size:14px;
+  transition:0.3s;
+ }
+ .card span:hover {
+  background:var(--primary);
+  color:#fff;
+ }
+ .row{
+  width:100%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-gap:10px;
+ }
+ .progrem {
+  border:1px solid #ccc;
+  color:#333;
+  padding:5px;
+  transition:0.3s ease-in;
+ }
+ .progrem:hover {
+  background:#333;
+ }
+ .progrem:hover p{
+   color:#fff;
+ }
+ .progrem img{
+  width:100%;
+  margin:auto;
+ }
+ .progress {
+  height:24px;
+  background:#ebebeb;
+  width:100%;
+  margin-bottom:20px;
+  border-radius:4px;
+  overflow:hidden;
+ }
+ .progress-value {
+   height:100%;
+   background:var(--primary);
+   color:#fff;
+   font-size:14px;
+   padding-left:10px;
+   display:flex;
+   align-items: center;
+ }
+ .progress-value.blue{
+   background:#0095ff;
+ }
+ #connect {
+  text-align:center;
+ }
+ .btn {
+  display:inline-block;
+  padding:8px 50px;
+  border-radius:30px;
+  background:black;
+  color:#fff;
+  font-size:18px;
+  font-family:cursive;
+  letter-spacing:1px;
+  box-shadow:0px 5px 5px -2px rgba(0,0,0,0.3);
+  margin-bottom:30px;
+  transition:0.5s ease;
+ }
+ .btn:hover {
+  background:var(--primary)
+ }
+ .footer {
+  background:var(--primary); 
+  color:#fff;
+  padding-top:20px;
+ }
+ .footer p{
+  color:#fff;
+  margin-bottom:20px;
+ }
+ .copyright {
+  text-align:center;
+  background:#ff5e5e;
+  padding:3px 5px;
+  border-top:1px solid #ccc;
+ }
+
+</style>
+
+
+</head>
+<body>
+<section id="celebration" class="celebration">
+  <div class="celebration-content">
+    
+      <button id="celebrate-btn">Click to continue</button>
+    
+      
+  </div>
+
+  </svg>
+</section>
+<main id="main" class="hide">
+  <div class="sidebar" id="sidebar">
+    <h1 class="sidebar-title" >YaSsInE+<sweet/h1>
+    <ul>
+      <li><a href="#home" >Home</a></li>
+      <li><a href="#about" >Images</a></li>
+      <li><a href="#blogs" >About yassine</a></li>
+      <li><a href="#blogs1" >Pictures from Morocco</a></li>
+      <li><a href="#code1" >My Country</a></li>
+      <li><a href="#code" >profile</a></li>
+      <li><a href="#codes" ><div>
+        <center><h3>Marocco</h3></center>
+        <center><img src="https://i.skyrock.net/0821/19160821/pics/573765110.gif" alt="images" height="100"></center>
+        <center><h6>2021 &copy; </h6></center>
+
+      </div></a></li>
+
+
+    </ul>
+  </div><!-- sidebar -->
+  <div class="nav-btn" id="nav-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <header class="header" id="home" >
+    <div class="header-bg"></div>
+    <div class="circle-box" >
+     <div class="profile-img" >
+       <a href="https://ibb.co/W2LHtD9"><img src="https://i.ibb.co/w0svQhd/Whats-App-Image-2021-01-30-at-20-16-57.jpg" alt="41f-XZ7o8q8-L" border="0"></a>
+
+     </div>
+     <div class="circle" ></div>
+    </div>
+    <div class="user-info" >
+      <h3>YASSINE</h3>
+      <p>Programmer and Designer</p>
+    </div>
+  </header>
+  <div class="container" >
+    <div id="about" >
+      <div class="subtitle" >
+        <h2>Images</h2>
+      </div>
+      <div class="skills" >
+      <div class="lang">
+ <a href="https://ibb.co/0D1X9sB"><img src="https://i.ibb.co/ZVPRm2H/Whats-App-Image-2021-01-30-at-20-16-57-4.jpg" height="177" width="184" alt="guru-randhawa-to-sing-loads-of-bollywood-songs-this-year-2019-6-21-21-10-6-thumbnail" border="2px"></a>
+
+        </div>
+        <div class="lang blue" >
+        <a href="https://ibb.co/3MpqwHK"><img src="https://i.ibb.co/F753JrB/Whats-App-Image-2021-01-30-at-20-16-57-5.jpg" height="177" width="184" alt="downloadfile" border="2px"></a>
+        </div>
+        <div class="lang blue" >
+         <a href="https://ibb.co/VTJxG9R"><img src="https://i.ibb.co/w0svQhd/Whats-App-Image-2021-01-30-at-20-16-57.jpg" height="177" width="184" alt="770d3d2aada28d112d70740933a127f3" border="2px"></a> 
+        </div>
+        <div class="lang" >
+        <a href="https://ibb.co/k2QZ4rn"><img src="https://i.ibb.co/4p0gVyh/Whats-App-Image-2021-01-30-at-20-16-57-1.jpg" height="177" width="184" alt="guru-randhawa-attacked-in-vancouver-post-his-concert600-1564485309-600x900" border="2px"></a> 
+        </div>
+       <div class="lang" >
+         <a href="https://ibb.co/ncVrf2j"><img src="https://i.ibb.co/z6ymx4N/Whats-App-Image-2021-01-30-at-20-16-57-2.jpg"  height="177" width="184"  alt="Guru-Randhawa" border="2px"></a>  
+        </div>
+         <div class="lang blue" >
+         <a href="https://ibb.co/9pJSbGX"><img src="https://i.ibb.co/PGS8Sft/Whats-App-Image-2021-01-30-at-20-16-57-3.jpg" height="177" width="184" alt="Single-Image-Recovered-2019-7-30-8-50-37-thumbnail" border="2px"></a> 
+        </div>
+    </div>
+</div><!-- about -->
+<div id="blogs">
+  <div class="subtitle" >
+    <h2>About Yassine</h2>
+ </div>
+ <div class="blogs" >
+   <div class="card" >
+     <div class="card-img" >
+      <a href="https://ibb.co/7k5qGvL"><img src="https://i.ibb.co/C97BgJn/ins-71021893-379051546317125-9181908859497066691-n.jpg" alt="guru-randhawa-to-sing-loads-of-bollywood-songs-this-year-2019-6-21-21-10-6-thumbnail" border="2px"></a>
+     </div>
+     <div class="card-body" >
+       <h2>about yassine</h2>
+       <p>Mahmoud Yassine, born in " 09 February1999", a law student at the University of Muhammad I in oujda, programming is just a friend who always accompanies me.
+
+       </p>
+     </div>
+     <span>Explore</span>
+   </div>
+   
+   <div class="card" >
+   <div class="card-img" >
+<a href="https://ibb.co/yBrKyYx"><img src="https://i.ibb.co/D7DgqyF/1613004703002-194633312.jpg" alt="220px-Lahore-Cover-Art" border="2px"></a>
+   </div>
+   <div class="card-body" >
+   <h2>More about me</h2>
+   <p>I gain many experiences and talents in life with the desire of the character What I do always make me happy I do not do things I do </br>not like, I do not follow the desires of other people, I work according to my personal principles.</br>
+ regarding the my skills:</br>
+* drawing </br>
+* design </br>
+* programming </br>
+As for hobbies:</br>
+I love football in the first degree,</br>
+ riding a bicycle
+   </p>
+   </div>
+   <span>Explore</span>
+   </div>
+   <div id="blogs">
+    <div class="subtitle" >
+      <h2>Pictures from Morocco</h2>
+      <div id="code">
+        <div class="subtitle" >
+          
+        </div>
+        <div class="row" >
+          <div class="progrem" >
+            
+          <img src="images/Marocco1.jpeg"  alt="yassine profile facebook" border="2px">
+              <center><p> Oujda - وجدة </p></center>
+            
+          </div><!-- progrem-->
+          <div class="progrem" >
+            
+              <img src="images/Marocco2.jpeg"  alt="IMG-20210211-002342-576" border="0">
+              <center><p img> Rebat - الرباط </p></center>
+            
+          </div><!-- progrem-->
+          <div class="progrem" >
+            
+              <img src="images/Marocco3.jpeg"  alt="IMG-20210211-002321-869" border="0">
+              <center><p> Marrakech - مراكش </p></center>
+            
+          </div><!-- progrem-->
+          
+          <div class="progrem" >
+               
+                <img src="images/Marocco4.jpeg"  alt="IMG-20210211-002232-709" border="0">
+                 <center><p> Tanjer - طنجة </p></center>
+               
+            </div><!-- progrem-->
+          <div class="progrem" >
+               
+                <img src="images/Marocco5.jpeg"  alt="IMG-20210211-002123-008" border="0">
+                 <center><p> Bouiblane,Taza - بويبلان ، تازة  </p></center>
+               
+            </div><!-- progrem-->
+            <div class="progrem" >
+               
+                <img src="images/Marocco6.jpeg"  alt="IMG-20210211-002232-709" border="0">
+                 <center><p> Ifrane - إفران </p></center>
+               
+            </div>
+            <div class="progrem" >
+               
+              <img src="images/Marocco7.jpeg"  alt="IMG-20210211-002123-008" border="0">
+               <center><p> Casablanca - الدار البيضاء  </p></center>
+             
+          </div><!-- progrem-->
+          <div class="progrem" >
+             
+              <img src="images/Marocco8.jpeg"  alt="IMG-20210211-002232-709" border="0">
+               <center><p> Sahara Morocco - الصحراء المغربية </p></center>
+             
+          </div>
+          <div class="progrem" >
+               
+            <img src="images/Marocco9.jpeg"  alt="IMG-20210211-002123-008" border="0">
+             <center><p> Fes - فاس  </p></center>
+           
+        </div><!-- progrem-->
+        <div class="progrem" >
+           
+            <img src="images/Marocco10.jpeg"  alt="IMG-20210211-002232-709" border="0">
+             <center><p> Chefchaouene,akchour - شفشاون،أكشور </p></center>
+           
+        </div><!-- progrem-->
+                    <!-- progrem-->
+          </div><!-- row -->
+        </div><!-- about -->
+      </div>
+   </div>
+   
+       </div>
+   <div class="card" >
+    <center><h1><span>My Country</span></h1></center>
+            <center><img src="images/maroc.jpg"></center>
+            <center><p class="maps">Geographical location : <a href="https://www.google.com/maps/place/Maroc/@31.7311865,-11.6463504,6z/data=!3m1!4b1!4m5!3m4!1s0xd0b88619651c58d:0xd9d39381c42cffc3!8m2!3d31.791702!4d-7.09262" traget="_blank"><strong>Maroc</strong></a>
+              <span>Explore</span>
+   </div>
+   
+   <!-- achieve -->
+<div id="code">
+  <div class="subtitle" >
+    <h2>yassine  profile's'</h2>
+  </div>
+  <div class="row" >
+    <div class="progrem" >
+      <a href="https://www.facebook.com/yassine.mahmoud.562/" target="_blank" >
+    <img src="https://i.ibb.co/MBFyQQt/Whats-App-Image-2021-01-30-at-21-04-27.jpg" alt="yassine profile facebook" border="2px">
+        <center><p>yassine facebook profile </p></center>
+      </a>
+    </div><!-- progrem-->
+    <div class="progrem" >
+      <a href="https://www.instagram.com/yassinemahmoudd/" target="_blank" >
+        <img src="https://i.ibb.co/t3vdKpk/IMG-20210211-002342-576.jpg" alt="IMG-20210211-002342-576" border="0">
+        <center><p img> yassine instagram profile </p></center>
+      </a>
+    </div><!-- progrem-->
+    <div class="progrem" >
+      <a href="https://wa.me/message/Z626ZKJDLKWCG1" target="_blank" >
+        <img src="https://i.ibb.co/tY4rTmP/IMG-20210211-002321-869.jpg" alt="IMG-20210211-002321-869" border="0">
+        <center><p>yassine Whatsapp profile</p></center>
+      </a>
+    </div><!-- progrem-->
+    
+    <div class="progrem" >
+         <a href="https://t.me/Yassine mah" target="_blank" >
+          <img src="https://i.ibb.co/fp8T0Tj/IMG-20210211-002232-709.jpg" alt="IMG-20210211-002232-709" border="0">
+           <center><p>yassine Telegram profile </p></center>
+         </a>
+      </div><!-- progrem-->
+    <div class="progrem" >
+         <a href="https://github.com/YASSINEV9" target="_blank" >
+          <img src="https://i.ibb.co/ykgYD3R/IMG-20210211-002123-008.jpg" alt="IMG-20210211-002123-008" border="0">
+           <center><p>yassine github profile </p></center>
+         </a>
+      </div><!-- progrem-->
+      <div class="progrem" >
+         <a href="https://www.linkedin.com/in/yassine-mahmoud-0b4470202/" target="_blank" >
+          <img src="https://i.ibb.co/fp8T0Tj/IMG-20210211-002232-709.jpg" alt="IMG-20210211-002232-709" border="0">
+           <center><p>yassine linkedin profile </p></center>
+         </a>
+      </div><!-- progrem-->
+              <!-- progrem-->
+    </div><!-- row -->
+  </div><!-- about -->
+<br />
+<br />
+   <center><a href="https://www.facebook.com/yassine.mahmoud.562/" target="_blanl"  class="btn"> Follow me</a></center>
+  </div><!-- about -->
+</div><!-- container -->
+<footer class="footer" >
+ <div class="container" >
+   <center><h3>special message</h3></center>
+   <center><p>" ثق بنفسك، أنت لست فاشل ربما أنت مخطئ في طريقتك ليس أكثر  "</p></center>
+   <center><p>"Believe in yourself, you are not a loser, perhaps you are wrong in your way, nothing more."
+   </p></center>
+ </div>
+ <div class="copyright" >
+    <small> Copyright &copy; 2021 , Created by Yassine 😉 </small>
+ </div>
+</footer>
+<audio src="music/song.mp3" id="music"></audio>
+<audio src="https://mobcup.net/d/hi6r54z0/mp3" loop id="music2"></audio>
+
+</main>
+<!-- script -->
+<script>
+const celebration = document.getElementById("celebration");
+const celebrateBtn = document.getElementById("celebrate-btn");
+const sidebar = document.getElementById("sidebar");
+const navToggle = document.getElementById("nav-toggle");
+const main = document.getElementById("main");
+const link = document.querySelectorAll("#sidebar li");
+const music = document.getElementById("music");
+const music2 = document.getElementById("music2");
+
+
+swal({
+title:"About Yassine",
+text: "i'm beginner and i create a very small code.i hope u all like it.very much .click on profile",
+icon: "success",
+button:"continue"
+}).then(() => music.play());
+
+navToggle.addEventListener('click', () => {
+ sidebar.classList.toggle('active');
+});
+celebrateBtn.addEventListener('click',() => {
+celebration.classList.add('hide');
+main.classList.remove('hide');
+music.pause()
+music2.play()
+})
+
+link.forEach(li => {
+li.addEventListener('click', () => {
+ sidebar.classList.remove('active');
+})
+})
+
+
+</script>
+</body>
+</html>
